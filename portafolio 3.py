@@ -31,5 +31,19 @@ euuclid = EuclideanAlgorithm
 a = int(input('Give the first number (a): '))
 b = int(input('Give the second number (b): '))
 
+def multinv(b, a):
+    """
+    Calculates the multiplicative inverse of a number b mod n,
+    using the Extended Euclidean Algorithm.
+    """
+    gcd, _, t = euuclid(b, a)
+    if gcd == 1:
+        return t % a
+    else:
+        raise ValueError(f"{b} has no multiplicative inverse modulo {a}")
+
+
+
 # Print the results with the given numbers
 print(euuclid.calculate_gcd(a,b))
+print(multinv(b,a))
